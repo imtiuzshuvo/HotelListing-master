@@ -41,6 +41,7 @@ namespace HotelListing
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                //added serilog reference to the builder
                 .UseSerilog()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
