@@ -1,3 +1,4 @@
+using HotelListing.Configurations;
 using HotelListing.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -46,6 +47,8 @@ namespace HotelListing
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("sqlServerConnectionString"))
             );
+
+            services.AddAutoMapper(typeof(MapperInitializer));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
