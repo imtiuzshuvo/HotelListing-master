@@ -28,9 +28,17 @@ namespace HotelListing
         {
 
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "HotelListing", Version = "v1" });
+            });
+
+            //added later
+            services.AddCors(policy => {
+                policy.AddPolicy("AllowAll", builder =>
+                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()
+                );
             });
         }
 
@@ -55,6 +63,8 @@ namespace HotelListing
             {
                 endpoints.MapControllers();
             });
+
+            app.UseCors("AllowAll");
         }
     }
 }
