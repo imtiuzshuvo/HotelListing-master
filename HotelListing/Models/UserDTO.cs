@@ -27,5 +27,7 @@ namespace HotelListing.Models
         {
             get; set;
         }
+
+        public ICollection<String> Roles { get; set; }
     }
 }

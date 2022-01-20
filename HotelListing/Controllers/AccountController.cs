@@ -58,6 +58,8 @@ namespace HotelListing.Controllers
                     return BadRequest(ModelState);
                 }
 
+                await _userManager.AddToRolesAsync(user, userDTO.Roles);
+
                 _logger.LogInformation("Registration successful.");
                 return Accepted("Registation successful.");
             }
